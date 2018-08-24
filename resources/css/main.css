@@ -1,1 +1,20 @@
 /* Enter your CSS here */
+body {
+    margin: 0;
+    font-size: 12px;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 500;
+    color: #252324;
+    background: #d8e8aa;
+    background-color: #d8e8aa;
+    background-image: -ms-linear-gradient(top, #d8e8aa, #fff);
+    background-image: linear-gradient(to bottom, #d8e8aa 0%, #fff 100%);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
