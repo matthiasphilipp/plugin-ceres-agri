@@ -1,6 +1,6 @@
 <?php
 
-namespace CeresVanilla\Providers;
+namespace CeresAgri\Providers;
 
 use Ceres\Caching\NavigationCacheSettings;
 use Ceres\Caching\SideNavigationCacheSettings;
@@ -14,10 +14,10 @@ use Plenty\Plugin\ConfigRepository;
 
 
 /**
- * Class CeresVanillaServiceProvider
- * @package CeresVanilla\Providers
+ * Class CeresAgriServiceProvider
+ * @package CeresAgri\Providers
  */
-class CeresVanillaServiceProvider extends ServiceProvider
+class CeresAgriServiceProvider extends ServiceProvider
 {
     const PRIORITY = 0;
 
@@ -29,13 +29,13 @@ class CeresVanillaServiceProvider extends ServiceProvider
     public function boot(Twig $twig, Dispatcher $dispatcher, ConfigRepository $config)
     {
 
-        $enabledOverrides = explode(", ", $config->get("CeresVanilla.templates.override"));
+        $enabledOverrides = explode(", ", $config->get("CeresAgri.templates.override"));
 
         // Override partials
         $dispatcher->listen('IO.init.templates', function (Partial $partial) use ($enabledOverrides)
         {
-            pluginApp(Container::class)->register('CeresVanilla::PageDesign.Partials.Header.NavigationList.twig', NavigationCacheSettings::class);
-            pluginApp(Container::class)->register('CeresVanilla::PageDesign.Partials.Header.SideNavigation.twig', SideNavigationCacheSettings::class);
+            pluginApp(Container::class)->register('CeresAgri::PageDesign.Partials.Header.NavigationList.twig', NavigationCacheSettings::class);
+            pluginApp(Container::class)->register('CeresAgri::PageDesign.Partials.Header.SideNavigation.twig', SideNavigationCacheSettings::class);
 
             $partial->set('head', 'Ceres::PageDesign.Partials.Head');
             $partial->set('header', 'Ceres::PageDesign.Partials.Header.Header');
@@ -44,22 +44,22 @@ class CeresVanillaServiceProvider extends ServiceProvider
 
             if (in_array("head", $enabledOverrides) || in_array("all", $enabledOverrides))
             {
-                $partial->set('head', 'CeresVanilla::PageDesign.Partials.Head');
+                $partial->set('head', 'CeresAgri::PageDesign.Partials.Head');
             }
 
             if (in_array("header", $enabledOverrides) || in_array("all", $enabledOverrides))
             {
-                $partial->set('header', 'CeresVanilla::PageDesign.Partials.Header.Header');
+                $partial->set('header', 'CeresAgri::PageDesign.Partials.Header.Header');
             }
 
             if (in_array("page_design", $enabledOverrides) || in_array("all", $enabledOverrides))
             {
-                $partial->set('page-design', 'CeresVanilla::PageDesign.PageDesign');
+                $partial->set('page-design', 'CeresAgri::PageDesign.PageDesign');
             }
 
             if (in_array("footer", $enabledOverrides) || in_array("all", $enabledOverrides))
             {
-                $partial->set('footer', 'CeresVanilla::PageDesign.Partials.Footer');
+                $partial->set('footer', 'CeresAgri::PageDesign.Partials.Footer');
             }
 
             return false;
@@ -71,7 +71,7 @@ class CeresVanillaServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.home', function (TemplateContainer $container)
             {
-                $container->setTemplate('CeresVanilla::Homepage.Homepage');
+                $container->setTemplate('CeresAgri::Homepage.Homepage');
                 return false;
             }, self::PRIORITY);
         }
@@ -82,7 +82,7 @@ class CeresVanillaServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.category.content', function (TemplateContainer $container)
             {
-                $container->setTemplate('CeresVanilla::Category.Content.CategoryContent');
+                $container->setTemplate('CeresAgri::Category.Content.CategoryContent');
                 return false;
             }, self::PRIORITY);
         }
@@ -93,7 +93,7 @@ class CeresVanillaServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.category.item', function (TemplateContainer $container)
             {
-                $container->setTemplate('CeresVanilla::Category.Item.CategoryItem');
+                $container->setTemplate('CeresAgri::Category.Item.CategoryItem');
                 return false;
             }, self::PRIORITY);
         }
@@ -104,7 +104,7 @@ class CeresVanillaServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.basket', function (TemplateContainer $container)
             {
-                $container->setTemplate('CeresVanilla::Basket.Basket');
+                $container->setTemplate('CeresAgri::Basket.Basket');
                 return false;
             }, self::PRIORITY);
         }
@@ -115,7 +115,7 @@ class CeresVanillaServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.checkout', function (TemplateContainer $container)
             {
-                $container->setTemplate('CeresVanilla::Checkout.Checkout');
+                $container->setTemplate('CeresAgri::Checkout.Checkout');
                 return false;
             }, self::PRIORITY);
         }
@@ -126,7 +126,7 @@ class CeresVanillaServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.confirmation', function (TemplateContainer $container)
             {
-                $container->setTemplate('CeresVanilla::Checkout.OrderConfirmation');
+                $container->setTemplate('CeresAgri::Checkout.OrderConfirmation');
                 return false;
             }, self::PRIORITY);
         }
@@ -137,7 +137,7 @@ class CeresVanillaServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.login', function (TemplateContainer $container)
             {
-                $container->setTemplate('CeresVanilla::Customer.Login');
+                $container->setTemplate('CeresAgri::Customer.Login');
                 return false;
             }, self::PRIORITY);
         }
@@ -148,7 +148,7 @@ class CeresVanillaServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.register', function (TemplateContainer $container)
             {
-                $container->setTemplate('CeresVanilla::Customer.Register');
+                $container->setTemplate('CeresAgri::Customer.Register');
                 return false;
             }, self::PRIORITY);
         }
@@ -159,7 +159,7 @@ class CeresVanillaServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.item', function (TemplateContainer $container)
             {
-                $container->setTemplate('CeresVanilla::Item.SingleItem');
+                $container->setTemplate('CeresAgri::Item.SingleItem');
                 return false;
             }, self::PRIORITY);
         }
@@ -170,7 +170,7 @@ class CeresVanillaServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.search', function (TemplateContainer $container)
             {
-                $container->setTemplate('CeresVanilla::ItemList.ItemListView');
+                $container->setTemplate('CeresAgri::ItemList.ItemListView');
                 return false;
             }, self::PRIORITY);
         }
@@ -181,7 +181,7 @@ class CeresVanillaServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.my-account', function (TemplateContainer $container)
             {
-                $container->setTemplate('CeresVanilla::MyAccount.MyAccount');
+                $container->setTemplate('CeresAgri::MyAccount.MyAccount');
                 return false;
             }, self::PRIORITY);
         }
@@ -192,7 +192,7 @@ class CeresVanillaServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.cancellation-rights', function (TemplateContainer $container)
             {
-                $container->setTemplate('CeresVanilla::StaticPages.CancellationRights');
+                $container->setTemplate('CeresAgri::StaticPages.CancellationRights');
                 return false;
             }, self::PRIORITY);
         }
@@ -203,7 +203,7 @@ class CeresVanillaServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.legal-disclosure', function (TemplateContainer $container)
             {
-                $container->setTemplate('CeresVanilla::StaticPages.LegalDisclosure');
+                $container->setTemplate('CeresAgri::StaticPages.LegalDisclosure');
                 return false;
             }, self::PRIORITY);
         }
@@ -214,7 +214,7 @@ class CeresVanillaServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.privacy-policy', function (TemplateContainer $container)
             {
-                $container->setTemplate('CeresVanilla::StaticPages.PrivacyPolicy');
+                $container->setTemplate('CeresAgri::StaticPages.PrivacyPolicy');
                 return false;
             }, self::PRIORITY);
         }
@@ -225,7 +225,7 @@ class CeresVanillaServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.terms-conditions', function (TemplateContainer $container)
             {
-                $container->setTemplate('CeresVanilla::StaticPages.TermsAndConditions');
+                $container->setTemplate('CeresAgri::StaticPages.TermsAndConditions');
                 return false;
             }, self::PRIORITY);
         }
@@ -236,7 +236,7 @@ class CeresVanillaServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.item-not-found', function (TemplateContainer $container)
             {
-                $container->setTemplate('CeresVanilla::StaticPages.ItemNotFound');
+                $container->setTemplate('CeresAgri::StaticPages.ItemNotFound');
                 return false;
             }, self::PRIORITY);
         }
@@ -247,7 +247,7 @@ class CeresVanillaServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.page-not-found', function (TemplateContainer $container)
             {
-                $container->setTemplate('CeresVanilla::StaticPages.PageNotFound');
+                $container->setTemplate('CeresAgri::StaticPages.PageNotFound');
                 return false;
             }, self::PRIORITY);
         }
