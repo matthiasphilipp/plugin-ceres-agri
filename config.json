@@ -1,20 +1,5 @@
 [
     {
-        "tab"                           : "Premiumshop",
-        "label"                         : "",
-		"formFields": {
-					"Config.premiumshopUrl":{
-						"type": "inputText",
-						"required": false,
-						"deprecated": true,
-						"label": "Preiumshop URL",
-						"options": {
-							"defaultValue": ""
-						}
-					}
-			}
-	}		
-	,{
         "tab"                           : "Templates",
         "key"                           : "templates.override",
         "label"                         : "Override partials and templates",
