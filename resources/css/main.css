@@ -1,20 +1,71 @@
-/* Enter your CSS here */
+/*--------------------------------------------------
+  Compiled on September 02, 2018 at 14:27pm by M. Philipp, zielgruppe kreativ
+--------------------------------------------------*/
+ 
 body {
-    margin: 0;
-    font-size: 12px;
-    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-weight: 500;
-    color: #252324;
-    background: #d8e8aa;
-    background-color: #d8e8aa;
-    background-image: -ms-linear-gradient(top, #d8e8aa, #fff);
-    background-image: linear-gradient(to bottom, #d8e8aa 0%, #fff 100%);
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-}
+  margin: 0;
+  font-size: 12px;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 500;
+  color: #252324;
+  background: #d8e8aa;
+  background-color: #d8e8aa;
+  background-image: -ms-linear-gradient(top, #d8e8aa, #fff);
+  background-image: linear-gradient(to bottom, #d8e8aa 0%, #ffffff 100%);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased; }
+
+#vue-app {
+  background: none !important; }
+
+.wrapper-main #page-body .container-max {
+  background: #fff; }
+.wrapper-main .brand-wrapper {
+  position: relative;
+  top: 0;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  z-index: 1000; }
+  .wrapper-main .brand-wrapper .navbar-brand img {
+    max-height: none;
+    max-width: 33%; }
+.wrapper-main .navbar {
+  display: block;
+  border-bottom: 1px solid #c9c9c9;
+  background: #fff url("../image/bg_nav.gif") repeat-x bottom left; }
+  .wrapper-main .navbar #mainNavbarCollapsable ul.mainmenu > li {
+    background: url("../image/bg_nav_item.gif") no-repeat 0 0; }
+    .wrapper-main .navbar #mainNavbarCollapsable ul.mainmenu > li:hover > a {
+      background: #3d7d25;
+      background: -moz-linear-gradient(top, #a1c444 0%, #3d7d25 50%, #a1c444 100%);
+      background: -webkit-linear-gradient(top, #a1c444 0%, #3d7d25 50%, #a1c444 100%);
+      background: linear-gradient(to bottom, #a1c444 0%, #3d7d25 50%, #a1c444 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@brand-primary', endColorstr='@brand-primary-light', GradientType=0);
+      color: #fff !important;
+      line-height: 150%; }
+    .wrapper-main .navbar #mainNavbarCollapsable ul.mainmenu > li > a {
+      border-color: rgba(0, 0, 0, 0.15);
+      -webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);
+      -moz-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);
+      box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);
+      color: #000 !important; }
+.wrapper-main .footer {
+  background-color: #242121;
+  color: #fff; }
+  .wrapper-main .footer a {
+    color: #fff;
+    font-weight: 600; }
+  .wrapper-main .footer h5, .wrapper-main .footer .h5 {
+    color: #b53596; }
+  .wrapper-main .footer .footer-content .row {
+    display: flex;
+    justify-content: center;
+    text-align: center; }
+    .wrapper-main .footer .footer-content .row hr {
+      display: none; }
