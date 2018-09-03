@@ -1,5 +1,5 @@
 /*--------------------------------------------------
-  Compiled on September 02, 2018 at 14:27pm by M. Philipp, zielgruppe kreativ
+  Compiled on September 03, 2018 at 12:07pm by M. Philipp, zielgruppe kreativ
 --------------------------------------------------*/
  
 body {
@@ -38,9 +38,9 @@ body {
 .wrapper-main .navbar {
   display: block;
   border-bottom: 1px solid #c9c9c9;
-  background: #fff url("../image/bg_nav.gif") repeat-x bottom left; }
+  background: #fff url("../images/bg_nav.gif") repeat-x bottom left; }
   .wrapper-main .navbar #mainNavbarCollapsable ul.mainmenu > li {
-    background: url("../image/bg_nav_item.gif") no-repeat 0 0; }
+    background: url("../images/bg_nav_item.gif") no-repeat 0 0; }
     .wrapper-main .navbar #mainNavbarCollapsable ul.mainmenu > li:hover > a {
       background: #3d7d25;
       background: -moz-linear-gradient(top, #a1c444 0%, #3d7d25 50%, #a1c444 100%);
