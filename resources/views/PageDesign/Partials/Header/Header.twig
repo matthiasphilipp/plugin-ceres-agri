@@ -25,7 +25,7 @@
                 {% for i in 1..numberOfFeatures %}
                     <div>
                         <i class="fa fa-check text-success" aria-hidden="true"></i>
-                        {{ trans('Ceres::Template.footerStoreFeature' ~ i) }}
+                        {{ trans('CeresAgri::Template.footerStoreFeature' ~ i) }}
                     </div>
                 {% endfor %}
             </div>
@@ -46,12 +46,12 @@
                         <user-login-handler>
                             <a data-toggle="modal">
                                 <i class="fa fa-user" aria-hidden="true"></i>
-                                <span class="hidden-xs-down">{{ trans("Ceres::Template.login") }}</span>
+                                <span class="hidden-xs-down">{{ trans("CeresAgri::Template.login") }}</span>
                             </a>
                             <span class="pipe"></span>
                             <a data-toggle="modal">
                                 <i class="fa fa-user-plus" aria-hidden="true"></i>
-                                <span class="hidden-xs-down">{{ trans("Ceres::Template.loginRegister") }}</span>
+                                <span class="hidden-xs-down">{{ trans("CeresAgri::Template.loginRegister") }}</span>
                             </a>
                         </user-login-handler>
                     </li>
@@ -94,33 +94,33 @@
                                     <span class="badge-right">0</span>
                                     <i class="fa fa-heart-o" aria-hidden="true"></i>
                                 </a>
-                            </wish-list-count> {{ trans("Ceres::Template.wishList") }}
+                            </wish-list-count> {{ trans("CeresAgri::Template.wishList") }}
                         </li>
                     {% endif %}
                     <li class="list-inline-item control-basket">
 					<div class="new-basket shadow">	
                         <a v-toggle-basket-preview href="#" class="toggle-basket-preview">
-						<i v-waiting-animation="$store.state.basket.isBasketLoading" waiting-class="fa fa-refresh fa-spin" class="fa fa-shopping-cart" aria-hidden="true"></i> <span>Warenkorb</span>
-							<span class="zg-headline">                           
-						   {% if config("Ceres.header.basket_values") != "sum" %}
-                                <span class="badge-right" v-basket-item-quantity="$store.state.basket.data.itemQuantity">0</span>
-                            {% endif %}
+						<span class="zg-headline"> 
+						<i v-waiting-animation="$store.state.basket.isBasketLoading" waiting-class="fa fa-refresh fa-spin" class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="title">{{ trans("CeresAgri::Template.basket") }}</span>
 							</span>
                           </a>  
 						  <div class="zg_flex middle spacearound">
 							  <span class="zg-price">
+							   {% if config("Ceres.header.basket_values") != "sum" %}
+                                <span class="badge-right" v-basket-item-quantity="$store.state.basket.data.itemQuantity">0</span> <span class="title">{{ trans("CeresAgri::Template.item") }}</span><br />
+                            {% endif %}
 								{% if config("Ceres.header.basket_values") != "quantity" %}
 									<span class="badge" v-if="!$store.state.basket.showNetPrices" v-basket-item-sum="$store.state.basket.data.itemSum">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
 									<span class="badge" v-else v-cloak v-basket-item-sum="$store.state.basket.data.itemSumNet">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
 								{% endif %}
 								</span>
-								<a href="/checkout" class="button btn alt" >zur Kasse</a>
+								<a href="/checkout" class="button btn alt" >CeresAgri::Template.checkoutUrl</a>
 						</div>
 					</div>
 					<div class="tocontact shadow">
 						<a href="/kontakt" class="toggle-tocontact">
 						<span class="zg-headline">
-							<i class="fa-phone fa"></i> <span class="title">Kontakt</span>
+							<i class="fa-phone fa"></i> <span class="title">{{ trans("CeresAgri::Template.contact") }}</span>
 						</span></a>
 						<div class="zg_flex middle spacearound">
 							<span class="badge">Telefon<br />03546 3010</span>
@@ -166,7 +166,7 @@
 
                     <div class="currency-list col-xs-12">
                         <div class="list-title">
-                            <strong>{{ trans("Ceres::Template.headerCurrency") }}</strong>
+                            <strong>{{ trans("CeresAgri::Template.headerCurrency") }}</strong>
                             <hr>
                         </div>
                         <ul>
@@ -196,7 +196,7 @@
 
                             <div class="language-settings">
                                 <div class="list-title">
-                                    <strong>{{ trans("Ceres::Template.headerSelectLanguage") }}</strong>
+                                    <strong>{{ trans("CeresAgri::Template.headerSelectLanguage") }}</strong>
                                     <hr>
                                 </div>
 
@@ -207,7 +207,7 @@
                                         <li{% if lang == language %} class="active"{% endif %}>
                                             <a href="{% if languageUrls[language] is defined %}{{ languageUrls[language] ~ queryString() }}{% elseif language != defaultLanguage %}/{{ language }}{{ urls.trailingSlashSuffix }}{% else %}/{% endif %}" data-update-url>
                                                 <i class="flag-icon flag-icon-{{ language }}"></i>
-                                                {{ trans("Ceres::Template.header" ~ language | capitalize) }}
+                                                {{ trans("CeresAgri::Template.header" ~ language | capitalize) }}
                                             </a>
                                         </li>
                                     {% endfor %}
@@ -217,7 +217,7 @@
                         <div class="country-settings-inner countries col-lg-6">
                             <div class="shipping-settings">
                                 <div class="list-title">
-                                    <strong>{{ trans("Ceres::Template.headerSelectShippingCountry") }}</strong>
+                                    <strong>{{ trans("CeresAgri::Template.headerSelectShippingCountry") }}</strong>
                                     <hr>
                                 </div>
                                 <shipping-country-select :disable-input="{{ services.template.isCheckout() | json_encode() }}"></shipping-country-select>
