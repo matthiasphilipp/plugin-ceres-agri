@@ -114,7 +114,7 @@
 									<span class="badge" v-else v-cloak v-basket-item-sum="$store.state.basket.data.itemSumNet">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
 								{% endif %}
 								</span>
-								<a href="/checkout" class="button btn alt" >CeresAgri::Template.checkoutUrl</a>
+								<a href="/checkout" class="button btn alt" >{{ trans("CeresAgri::Template.checkoutUrl") }}</a>
 						</div>
 					</div>
 					<div class="tocontact shadow">
