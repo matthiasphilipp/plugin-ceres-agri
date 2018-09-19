@@ -1,5 +1,5 @@
 /*--------------------------------------------------
-  Compiled on September 13, 2018 at 09:51am by M. Philipp, zielgruppe kreativ
+  Compiled on September 19, 2018 at 18:18pm by M. Philipp, zielgruppe kreativ
 --------------------------------------------------*/
  
 @charset "UTF-8";
@@ -94,10 +94,8 @@ body {
     right: -2px;
     position: absolute; }
 
-.wrapper-main #page-body {
-  margin-top: 315px; }
-  .wrapper-main #page-body .container-max {
-    background: #fff; }
+.wrapper-main #page-body .container-max {
+  background: #fff; }
 .wrapper-main .top-bar {
   background: #fff; }
 .wrapper-main .brand-wrapper {
