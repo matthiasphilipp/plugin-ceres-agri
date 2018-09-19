@@ -1,5 +1,5 @@
 /*--------------------------------------------------
-  Compiled on September 19, 2018 at 18:18pm by M. Philipp, zielgruppe kreativ
+  Compiled on September 19, 2018 at 18:40pm by M. Philipp, zielgruppe kreativ
 --------------------------------------------------*/
  
 @charset "UTF-8";
@@ -249,6 +249,11 @@ body {
     font-weight: 600; }
   .wrapper-main .footer h5, .wrapper-main .footer .h5 {
     color: #b53596; }
+  .wrapper-main .footer nav {
+    text-align: center; }
+    .wrapper-main .footer nav .h5 {
+      font-weight: 400;
+      font-size: 1.5em; }
   .wrapper-main .footer .footer-content .row {
     display: flex;
     justify-content: center;
