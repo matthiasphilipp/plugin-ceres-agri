@@ -17,27 +17,31 @@
 
 
 <header class="top-bar">
-	<div>
+
     {% if numberOfFeatures > 0 %}
-        <div class="header-features p-y-1 container-max">
+	<div class="header-features">
+         <div class=" container-max">
             <div class="row">
                 {% for i in 1..numberOfFeatures %}
-                    <div class="col-xs-12 col-sm-4 text-xs-center">
+                    <div>
                         <i class="fa fa-check text-success" aria-hidden="true"></i>
                         {{ trans('Ceres::Template.footerStoreFeature' ~ i) }}
                     </div>
                 {% endfor %}
             </div>
         </div>
+        </div>
     {% endif %}
-	</div>	
+
 	<div>
-        <div class="container-max">
+        <div class="container-max header-service">
             <div class="row">
                 {{ LayoutContainer.show("Ceres::Header.LeftSide") }}
 
-                <ul id="controlsList" class="controls-list list-inline">
-
+                <ul id="controlsList" class="controls-list list-inline flex-top">
+				<li class="list-inline-item control-premiumlink">
+					<a href="\" class="premium-link"><i class="icon-king fa fa-phone"></i> Jetzt Premiummitglied werden!</a>
+				</li>
                     <li class="list-inline-item control-user">
                         <user-login-handler>
                             <a data-toggle="modal">
@@ -51,6 +55,7 @@
                             </a>
                         </user-login-handler>
                     </li>
+					<!--
                     <li class="list-inline-item dropdown control-languages">
                         <a data-toggle="collapse" href="#countrySettings" aria-expanded="false"
                             aria-controls="countrySettings"
@@ -81,7 +86,7 @@
                            data-parent="#controlsList">
                             <span class="anicon-search-item" aria-hidden="true"></span>
                         </a>
-                    </li>
+                    </li>-->
                     {% if "wish-list" in enabledRoutes or "all" in enabledRoutes %}
                         <li class="list-inline-item control-wish-list">
                             <wish-list-count>
@@ -89,22 +94,40 @@
                                     <span class="badge-right">0</span>
                                     <i class="fa fa-heart-o" aria-hidden="true"></i>
                                 </a>
-                            </wish-list-count>
+                            </wish-list-count> {{ trans("Ceres::Template.wishList") }}
                         </li>
                     {% endif %}
                     <li class="list-inline-item control-basket">
+					<div class="new-basket shadow">	
                         <a v-toggle-basket-preview href="#" class="toggle-basket-preview">
-                            {% if config("Ceres.header.basket_values") != "sum" %}
+						<i v-waiting-animation="$store.state.basket.isBasketLoading" waiting-class="fa fa-refresh fa-spin" class="fa fa-shopping-cart" aria-hidden="true"></i> <span>Warenkorb</span>
+							<span class="zg-headline">                           
+						   {% if config("Ceres.header.basket_values") != "sum" %}
                                 <span class="badge-right" v-basket-item-quantity="$store.state.basket.data.itemQuantity">0</span>
                             {% endif %}
-
-                            <i v-waiting-animation="$store.state.basket.isBasketLoading" waiting-class="fa fa-refresh fa-spin" class="fa fa-shopping-cart" aria-hidden="true"></i>
-                            {% if config("Ceres.header.basket_values") != "quantity" %}
-                                <span class="badge" v-if="!$store.state.basket.showNetPrices" v-basket-item-sum="$store.state.basket.data.itemSum">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
-                                <span class="badge" v-else v-cloak v-basket-item-sum="$store.state.basket.data.itemSumNet">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
-                            {% endif %}
-                        </a>
-
+							</span>
+                          </a>  
+						  <div class="zg_flex middle spacearound">
+							  <span class="zg-price">
+								{% if config("Ceres.header.basket_values") != "quantity" %}
+									<span class="badge" v-if="!$store.state.basket.showNetPrices" v-basket-item-sum="$store.state.basket.data.itemSum">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
+									<span class="badge" v-else v-cloak v-basket-item-sum="$store.state.basket.data.itemSumNet">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
+								{% endif %}
+								</span>
+								<a href="/checkout" class="button btn alt" >zur Kasse</a>
+						</div>
+					</div>
+					<div class="tocontact shadow">
+						<a href="/kontakt" class="toggle-tocontact">
+						<span class="zg-headline">
+							<i class="fa-phone fa"></i> <span class="title">Kontakt</span>
+						</span></a>
+						<div class="zg_flex middle spacearound">
+							<span class="badge">Telefon<br />03546 3010</span>
+							<a href="#" class="button btn ">E-Mail</a>
+						</div>
+						
+					</div>
                         {% if config("Ceres.basket.preview_type") != "right" %}
                             <basket-preview template="#vue-basket-preview-hover" :show-net-prices="{{ showNetPrices | json_encode }}"></basket-preview>
                         {% endif %}
