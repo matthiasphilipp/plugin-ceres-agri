@@ -1,5 +1,5 @@
-{{ component( "Ceres::Containers.Components.ContainerItemList" ) }}
-{{ component( "Ceres::Containers.Components.LastSeenItemList" ) }}
+{{ component( "CeresAgri::Containers.Components.ContainerItemList" ) }}
+{{ component( "CeresAgri::Containers.Components.LastSeenItemList" ) }}
 
 {% set listType = config("Ceres.item.lists." ~ itemListNo ~ ".list_type") %}
 {% set tagIds = config("Ceres.item.lists." ~ itemListNo ~ ".tag_ids") | split(",") %}
@@ -16,11 +16,8 @@
     {% if listType == "last_seen" %}
         <last-seen-item-list>
             <div slot="heading">
-                {% if not isHome %}
-                    <hr>
-                {% endif %}
 
-                {% include 'Ceres::Containers.Partials.ItemLists.ItemListHeader' with { itemListNo: itemListNo, listType: listType, isHome: isHome } %}
+                {% include 'CeresAgri::Containers.Partials.ItemLists.ItemListHeader' with { itemListNo: itemListNo, listType: listType, isHome: isHome } %}
             </div>
         </last-seen-item-list>
     {% elseif itemList is not empty %}
@@ -29,7 +26,7 @@
                 <hr>
             {% endif %}
 
-            {% include 'Ceres::Containers.Partials.ItemLists.ItemListHeader' with { itemListNo: itemListNo, listType: listType, isHome: isHome } %}
+            {% include 'CeresAgri::Containers.Partials.ItemLists.ItemListHeader' with { itemListNo: itemListNo, listType: listType, isHome: isHome } %}
         </div>
         <container-item-list :items="{{ itemList | json_encode }}"></container-item-list>
     {% endif %}
