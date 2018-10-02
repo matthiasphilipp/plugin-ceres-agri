@@ -1,0 +1,26 @@
+{{ services.lastSeen.setLastSeenMaxCount(config("Ceres.item.lists.last_seen_number")) }}
+
+{{ component( "CeresAgri::Item.Components.VariationSelect" ) }}
+{{ component( "CeresAgri::Item.Components.ItemImageCarousel" ) }}
+{{ component( "CeresAgri::Item.Components.AddToWishList" ) }}
+{{ component( "CeresAgri::Item.Components.OrderProperties" ) }}
+{{ component( "CeresAgri::Item.Components.OrderPropertyList" ) }}
+{{ component( "CeresAgri::Item.Components.SingleItem" ) }}
+{{ component( "CeresAgri::Item.Components.GraduatedPrices" ) }}
+{{ component( "CeresAgri::Basket.Components.AddToBasket" ) }}
+{{ component( "CeresAgri::Item.Components.ItemBundle" ) }}
+
+
+<single-item v-cloak template="#vue-single-item" :item-data="{{ item | json_encode }}" :variation-list-data="{{ variations | json_encode }}" :attribute-name-map="{{attributeNameMap | json_encode}}">
+    <div slot="BeforePrice">{{ LayoutContainer.show("CeresAgri::SingleItem.BeforePrice", item.documents[0].data) }}</div>
+    <div slot="AfterPrice">{{ LayoutContainer.show("CeresAgri::SingleItem.AfterPrice", item.documents[0].data) }}</div>
+    <div slot="BeforeAddToBasket">{{ LayoutContainer.show("CeresAgri::SingleItem.BeforeAddToBasket", item.documents[0].data) }}</div>
+    <div slot="AfterAddToBasket">{{ LayoutContainer.show("CeresAgri::SingleItem.AfterAddToBasket", item.documents[0].data) }}</div>
+    <div slot="AdditionalContentAfterAddToBasket">{{ LayoutContainer.show("CeresAgri::SingleItem.AdditionalContentAfterAddToBasket", item.documents[0].data) }}</div>
+    <div slot="AdditionalContentAfterVAT">{{ LayoutContainer.show("CeresAgri::SingleItem.AdditionalContentAfterVAT", item.documents[0].data) }}</div>
+    <template slot="AddDetailTabs">{{ LayoutContainer.show("CeresAgri::SingleItem.AddDetailTabs", item.documents[0].data) }}</template>
+    <template slot="AddDetailTabsContent">{{ LayoutContainer.show("CeresAgri::SingleItem.AddDetailTabsContent", item.documents[0].data) }}</template>
+    </single-item>
+<div slot="ItemListContainer">{{ LayoutContainer.show("CeresAgri::SingleItem.ItemListContainer", item) }}</div>
+<div slot="FeedbackContainer">{{ LayoutContainer.show("CeresAgri::SingleItem.FeedbackContainer", item) }}</div>
+	
