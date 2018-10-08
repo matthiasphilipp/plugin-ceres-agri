@@ -12,18 +12,22 @@
     {% set itemList = services.itemList.getItemList( listType, tagIds ).documents %}
 {% endif %}
 
-<div class="row itemlistrow">
+
     {% if listType == "last_seen" %}
+	<div class="row itemlistrow">
         <last-seen-item-list>
             <div slot="heading">
                 {% include 'CeresAgri::Containers.Partials.ItemLists.ItemListHeader' with { itemListNo: itemListNo, listType: listType, isHome: isHome } %}
             </div>
         </last-seen-item-list>
+	</div>	
     {% elseif itemList is not empty %}
-        <div class="col-xs-12">
+    <div class="row itemlistrow">
+		<div class="col-xs-12">
 
             {% include 'CeresAgri::Containers.Partials.ItemLists.ItemListHeader' with { itemListNo: itemListNo, listType: listType, isHome: isHome } %}
         </div>
         <container-item-list :items="{{ itemList | json_encode }}"></container-item-list>
+	</div>	
     {% endif %}
-</div>
+
