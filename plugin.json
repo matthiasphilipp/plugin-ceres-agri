@@ -11,7 +11,7 @@
     "shortDescription"  :   { "de": "Ein Vanilla-Theme-Klon für Ceres.", "en": "A Vanilla theme clone for Ceres." },
     "namespace"         :   "CeresAgri",
     "author"            :   "zielgruppe kreativ GmbH",
-    "keywords"          :   ["ziegruppe", "plugins", "layout", "theme", "ceres"],
+    "keywords"          :   ["zielgruppe", "plugins", "layout", "theme", "ceres"],
     "price"             :   0,
     "categories"        :   [3518],
     "type"              :   "theme",
