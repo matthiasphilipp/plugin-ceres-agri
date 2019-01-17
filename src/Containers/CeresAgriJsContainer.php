@@ -1,6 +1,6 @@
 <?php
 
-namespace CeresAgri\JsContainers;
+namespace CeresAgri\Containers;
 
 use Plenty\Plugin\Templates\Twig;
 
