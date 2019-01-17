@@ -24,6 +24,11 @@
             "name"          :"Stylesheet",
             "description"   :"Add changes to the CSS file"
         },
+		 {
+            "key"           :"CeresAgri\\Containers\\CeresAgriJsContainer",
+            "name"          :"Js files",
+            "description"   :"Add changes to the js file"
+        },
         {
             "key"           :"CeresAgri\\Containers\\CeresAgriItemListContainer1",
             "name"          :"First item list",
