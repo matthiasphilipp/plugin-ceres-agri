@@ -1,7 +1,7 @@
-{% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
+{% import "CeresAgri::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 
-{{ component( "Ceres::Item.Components.QuantityInput" ) }}
-{{ component( "Ceres::Item.Components.ItemBundle" ) }}
+{{ component( "CeresAgri::Item.Components.QuantityInput" ) }}
+{{ component( "CeresAgri::Item.Components.ItemBundle" ) }}
 
 {% set itemsData = config("Ceres.basket.item_data")|split(', ') %}
 {% set basketDetailsData = config("Ceres.basket.item_data")|split(', ') %}
@@ -9,7 +9,7 @@
 <script type="x/template" id="vue-basket-list-item">
     <div class="basket-item-container" :class="{ 'basket-small': size === 'small', 'basket-large': size === 'large' }">
         
-        {{ LayoutContainer.show("Ceres::BasketList.BeforeItem") }}
+        {{ LayoutContainer.show("CeresAgri::BasketList.BeforeItem") }}
         
         <div class="basket-item component-loading with-icon sending" :class="{ 'isLoading': waiting }">
 
@@ -38,7 +38,7 @@
                                     ${ basePrice }
                                 </div>
                                 <div>
-                                    <strong>{{ trans("Ceres::Template.basketContent") }}: </strong>
+                                    <strong>{{ trans("CeresAgri::Template.basketContent") }}: </strong>
                                     ${ basketItem.variation.data.unit.content } ${ basketItem.variation.data.unit.names.name }
                                 </div>
                             </div>
@@ -68,9 +68,9 @@
                             <div class="item-total-price">${ itemTotalPrice | currency(basketItem.variation.data.calculatedPrices.default.currency) }</div>
                 
                             <div class="item-remove-container">
-                                <div class="btn btn-sm item-remove-button" :class="{ 'disabled': waiting || isBasketLoading || waitingForDelete }" @click="deleteItem">
+                                <div class="btn btn-sm item-remove-button bg-danger" :class="{ 'disabled': waiting || isBasketLoading || waitingForDelete }" @click="deleteItem">
                                     <span>
-                                        {{ trans("Ceres::Template.basketDelete") }}
+                                        {{ trans("CeresAgri::Template.basketDelete") }}
                                         <i v-waiting-animation="waitingForDelete" class="fa fa-trash-o" aria-hidden="true"></i>
                                     </span>
                                 </div>
@@ -80,12 +80,12 @@
                 </div>
 
                 <div class="item-properties" v-if="basketItem.basketItemOrderParams.length">
-                    <div class="item-properties-header">{{ trans("Ceres::Template.basketAdditionalOptions") }}:</div>
+                    <div class="item-properties-header">{{ trans("CeresAgri::Template.basketAdditionalOptions") }}:</div>
                     <ul>
                         <li v-for="property in basketItem.basketItemOrderParams" :key="property.propertyId" v-show="isPropertyVisible(property.propertyId)">
 
                             <span :class="{ 'item-property-value': size === 'small' }">
-                                <strong :class="{ 'colon': property.type.length > 0 }">${ property.name } ({{ trans("Ceres::Template.basketIncludeAbbr") }} ${ basketItem.variation.data.properties | propertySurcharge(property.propertyId) | currency })</strong>
+                                <strong :class="{ 'colon': property.type.length > 0 }">${ property.name } ({{ trans("CeresAgri::Template.basketIncludeAbbr") }} ${ basketItem.variation.data.properties | propertySurcharge(property.propertyId) | currency })</strong>
                                 <span v-if="size === 'small'">
                                     <span v-if="property.type === 'file'">
                                         <a :href="property.value | fileUploadPath" target="_blank">
@@ -114,21 +114,21 @@
                     <div class="item-additional-information" v-if="size === 'large' && showMoreInformation">
                         {% if "basket.item.item_id" in basketDetailsData %}
                             <div class="m-t-1">
-                                <strong>{{ trans("Ceres::Template.basketItemId") }}:</strong>
+                                <strong>{{ trans("CeresAgri::Template.basketItemId") }}:</strong>
                                 <span>${ basketItem.itemId }</span>
                             </div>
                         {% endif %}
 
                         {% if "basket.item.customNumber" in basketDetailsData %}
                             <div v-if="basketItem.variation.data.variation.number">
-                                <strong>{{ trans("Ceres::Template.basketItemNumber") }}:</strong>
+                                <strong>{{ trans("CeresAgri::Template.basketItemNumber") }}:</strong>
                                 <span>${ basketItem.variation.data.variation.number }</span>
                             </div>
                         {% endif %}
 
                         {% if "basket.item.availability" in basketDetailsData %}
                             <div v-if="basketItem.variation.data.variation.availability.names.name">
-                                <strong>{{ trans("Ceres::Template.basketAvailability") }}:</strong>
+                                <strong>{{ trans("CeresAgri::Template.basketAvailability") }}:</strong>
                                 <span>${ basketItem.variation.data.variation.availability.names.name }</span>
                             </div>
                         {% endif %}
@@ -143,14 +143,14 @@
                     </div>
 
                     {% if "basket.item.item_id" in basketDetailsData or "basket.item.availability" in basketDetailsData or "basket.item.customNumber" in basketDetailsData or "basket.item.description_long" in basketDetailsData or "basket.item.description_short" in basketDetailsData %}
-                        <label v-if="size === 'large'" @click="showMoreInformation = !showMoreInformation" class="basket-expand" :class="{ 'opened': showMoreInformation }" data-show-more="{{ trans("Ceres::Template.basketShowMore") }}" data-show-less="{{ trans("Ceres::Template.basketShowLess") }}"></label>
+                        <label v-if="size === 'large'" @click="showMoreInformation = !showMoreInformation" class="basket-expand" :class="{ 'opened': showMoreInformation }" data-show-more="{{ trans("CeresAgri::Template.basketShowMore") }}" data-show-less="{{ trans("CeresAgri::Template.basketShowLess") }}"></label>
                     {% endif %}
                 </div>
             </div>
 
         </div>
         
-        {{ LayoutContainer.show("Ceres::BasketList.AfterItem") }}
+        {{ LayoutContainer.show("CeresAgri::BasketList.AfterItem") }}
         
     </div>
 </script>
