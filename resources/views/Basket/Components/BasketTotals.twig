@@ -48,17 +48,17 @@
                 {{ LayoutContainer.show("Ceres::BasketTotals.AfterItemSum") }}
 
                 {{ LayoutContainer.show("Ceres::BasketTotals.BeforeShippingCosts") }}
-                <dt :class="{ 'font-weight-bold': showNetPrices }">
+               <!-- <dt :class="{ 'font-weight-bold': showNetPrices }">
                     {{ trans("Ceres::Template.basketShippingCosts") }} ({{ trans("Ceres::Template.basketNet") }})
                 </dt>
                 <dd :class="{ 'font-weight-bold': showNetPrices }">
                     ${ basket.shippingAmountNet | currency }
                 </dd>
-
-                <dt :class="{ 'font-weight-bold': !showNetPrices }">
+				-->
+                <dt :class="{ 'font-weight-bold': showNetPrices }">
                     {{ trans("Ceres::Template.basketShippingCosts") }} 
                 </dt><!--
-                --><dd :class="{ 'font-weight-bold': !showNetPrices }">
+                --><dd :class="{ 'font-weight-bold': showNetPrices }">
                     ${ basket.shippingAmount | currency }
                 </dd>
                 {{ LayoutContainer.show("Ceres::BasketTotals.AfterShippingCosts") }}
