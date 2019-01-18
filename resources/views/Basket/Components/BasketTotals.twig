@@ -7,17 +7,17 @@
         <div class="component-loading with-icon refreshing split-totals-height" :class="{ 'isLoading': isBasketLoading }">
             <dl>
                 {{ LayoutContainer.show("Ceres::BasketTotals.BeforeItemSum") }}
-                <dt :class="{ 'font-weight-bold': showNetPrices }">
+                <!--<dt :class="{ 'font-weight-bold': showNetPrices }">
                     {{ trans("Ceres::Template.basketValue") }} ({{ trans("Ceres::Template.basketNet") }})
-                </dt><!--
-                --><dd :class="{ 'font-weight-bold': showNetPrices }">
+                </dt>
+                <dd :class="{ 'font-weight-bold': showNetPrices }">
                     ${ calculateBaseValue(basket.itemSumNet, basket.basketRebate) | currency }
-                </dd>
+                </dd>-->
 
-                <dt :class="{ 'font-weight-bold': !showNetPrices }">
+                <dt :class="{ 'font-weight-bold': showNetPrices }">
                     {{ trans("Ceres::Template.basketValue") }} 
                 </dt><!--
-                --><dd :class="{ 'font-weight-bold': !showNetPrices }">
+                --><dd :class="{ 'font-weight-bold': showNetPrices }">
                     ${ calculateBaseValue(basket.itemSum, basket.basketRebate)| currency  }
                 </dd>
 
@@ -31,12 +31,12 @@
                 <dd class="rebate-hint" v-else>
                         ${ calculateBaseValue(basket.itemSumNet, basket.basketRebate) - basket.itemSumNet | currency  }
                     </dd>
-                    <!--<dt :class="{ 'font-weight-bold': showNetPrices }">
+                    <dt :class="{ 'font-weight-bold': showNetPrices }">
                         {{ trans("Ceres::Template.basketSubTotal") }} ({{ trans("Ceres::Template.basketNet") }})
                     </dt>
                <dd :class="{ 'font-weight-bold': showNetPrices }">
                         ${ basket.itemSumNet | currency }
-                    </dd> -->
+                    </dd>
                     <dt :class="{ 'font-weight-bold': !showNetPrices }">
                         {{ trans("Ceres::Template.basketSubTotal") }} 
                     </dt><!--
@@ -48,12 +48,12 @@
                 {{ LayoutContainer.show("Ceres::BasketTotals.AfterItemSum") }}
 
                 {{ LayoutContainer.show("Ceres::BasketTotals.BeforeShippingCosts") }}
-                <!--<dt :class="{ 'font-weight-bold': showNetPrices }">
+                <dt :class="{ 'font-weight-bold': showNetPrices }">
                     {{ trans("Ceres::Template.basketShippingCosts") }} ({{ trans("Ceres::Template.basketNet") }})
                 </dt>
                 <dd :class="{ 'font-weight-bold': showNetPrices }">
                     ${ basket.shippingAmountNet | currency }
-                </dd>-->
+                </dd>
 
                 <dt :class="{ 'font-weight-bold': !showNetPrices }">
                     {{ trans("Ceres::Template.basketShippingCosts") }} 
@@ -66,12 +66,12 @@
                 <hr>
 
                 {{ LayoutContainer.show("Ceres::BasketTotals.BeforeTotalSum") }}
-                <!--<dt :class="{ 'font-weight-bold': showNetPrices }">
+                <dt :class="{ 'font-weight-bold': showNetPrices }">
                     {{ trans("Ceres::Template.basketTotalSum") }} ({{ trans("Ceres::Template.basketNet") }})
                 </dt>
                 <dd :class="{ 'font-weight-bold': showNetPrices }">
                     ${ basket.basketAmountNet | currency }
-                </dd>-->
+                </dd>
                 <template v-if="basket.couponCode && basket.couponCampaignType === 'promotion'">
                     <dt>
                         {{ trans("Ceres::Template.basketCoupon") }}
