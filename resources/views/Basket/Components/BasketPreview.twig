@@ -1,6 +1,6 @@
-{% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
-{{ component( "Ceres::Basket.Components.BasketList" ) }}
-{{ component( "Ceres::Basket.Components.BasketTotals" ) }}
+{% import "CeresAgri::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
+{{ component( "CeresAgri::Basket.Components.BasketList" ) }}
+{{ component( "CeresAgri::Basket.Components.BasketTotals" ) }}
 
 <script type="x/template" id="vue-basket-preview">
     <div class="wrapper-inner basket-preview">
@@ -8,7 +8,7 @@
                 {{ trans("CeresAgri::Template.basketPreviewGoShopping") }}
             </button>
         <header class="basket-header p-a-1">
-            <div class="d-inline-block m-a-0 basket-header-caption">{{ trans("Ceres::Template.basketPreview") }}</div>
+            <div class="d-inline-block m-a-0 basket-header-caption">{{ trans("CeresAgri::Template.basketPreview") }}</div>
             
         </header>
 
@@ -39,14 +39,14 @@
                         rel="nofollow"
                         class="btn btn-outline-primary btn-block basketBtn"
                         :class="{ 'disabled': basketItems.length <= 0 }"
-                        title="{{ trans("Ceres::Template.basket") }}">
+                        title="{{ trans("CeresAgri::Template.basket") }}">
                             <i class="fa fa-shopping-cart hidden-sm"></i>
-                            {{ trans("Ceres::Template.basket") }} 
+                            {{ trans("CeresAgri::Template.basket") }} 
                         </a>
                     </div>
 
                     <div class="col-xs-6 col-sm-6">
-                        {{ LayoutContainer.show("Ceres::BasketPreview.BeforeCheckoutButton") }}
+                        {{ LayoutContainer.show("CeresAgri::BasketPreview.BeforeCheckoutButton") }}
 
                         <div>
                             <a v-waiting-animation-infinite
@@ -54,13 +54,13 @@
                             :class="{ 'disabled': basketItems.length <= 0 }"
                             class="btn btn-primary btn-block checkOutBtn"
                             rel="nofollow"
-                            title="{{ trans("Ceres::Template.basketCheckout") }}">
+                            title="{{ trans("CeresAgri::Template.basketCheckout") }}">
                                 <i class="fa fa-arrow-right hidden-sm" aria-hidden="true"></i>
-                                {{ trans("Ceres::Template.basketCheckout") }}
+                                {{ trans("CeresAgri::Template.basketCheckout") }}
                             </a>
                         </div>
 
-                        {{ LayoutContainer.show("Ceres::BasketPreview.AfterCheckoutButton") }}
+                        {{ LayoutContainer.show("CeresAgri::BasketPreview.AfterCheckoutButton") }}
                     </div>
                 </div>
             </div>
