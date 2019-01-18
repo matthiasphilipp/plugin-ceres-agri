@@ -7,7 +7,7 @@
     <div class="container-max login">
 	<h1 class="login-view-title m-b-3 h2">{{ trans("CeresAgri::Template.login") }}</h1>
         <div class="row ">
-            <div class="col-sm-{% if 'my-account' not in backlink %}8{% else %}6{% endif %}">
+            <div class="col-sm-6">
 				<h2>{{ trans("CeresAgri::Template.loginNoCustomer") }}</h2>
 				<hr />
 				
@@ -19,7 +19,7 @@
 							</a>
 						
 				</div> {% if "my-account" not in backlink %}
-				<div class="col-sm-10 col-md-4 ">
+				<div class="col-sm-6">
 				<div class="text"><p>{{ trans("CeresAgri::Template.loginOrderAsGuestText") }}</p></div>
 								<button class="btn btn-primary btn-block m-b-1" @click="openGuestModal()">
 									<i class="fa fa-shopping-bag" aria-hidden="true"></i>
@@ -28,7 +28,7 @@
 					   
 				</div> {% endif %}
 			</div>
-            <div class="col-sm-{% if 'my-account' not in backlink %}4{% else %}6{% endif %} ">
+            <div class="col-sm-6">
 				<h2>{{ trans("CeresAgri::Template.loginCustomer") }}</h2>
 				<hr />
                 <div>
