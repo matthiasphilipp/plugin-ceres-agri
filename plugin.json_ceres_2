@@ -1,17 +1,21 @@
 {
-    "version"           :   "1.0.6",
+    "version"           :   "0.0.1",
+    "license"           :   "AGPL-3.0",
     "name"              :   "CeresAgri",
+    "marketplaceName"   :   {"de":"Ceres Agri","en":"Ceres Agri"},
     "pluginIcon"        :   "icon_plugin_xs.png",
     "authorIcon"        :   "icon_author_xs.png",
-    "email"             :   "philippqdie-zielgruppe.com",
-    "phone"             :   "+49 30 6780413 12",
-    "description"       :   "A Coconut theme clon for Ceres 3.",
+    "email"             :   "philipp@die-zielgruppe.com",
+    "phone"             :   "",
+    "description"       :   "A Vanilla theme clone for Ceres.",
+    "shortDescription"  :   { "de": "Ein Vanilla-Theme-Klon für Ceres.", "en": "A Vanilla theme clone for Ceres." },
     "namespace"         :   "CeresAgri",
     "author"            :   "zielgruppe kreativ GmbH",
+    "keywords"          :   ["zielgruppe", "plugins", "layout", "theme", "ceres"],
+    "price"             :   0,
+    "categories"        :   [3518],
     "type"              :   "theme",
-    "require"           :   {
-                                "Ceres":"~3.0"
-                            },
+    "require"           :   ["Ceres"],
     "serviceProvider"   :   "CeresAgri\\Providers\\CeresAgriServiceProvider",
     "dataProviders"     :
     [
@@ -19,6 +23,11 @@
             "key"           :"CeresAgri\\Containers\\CeresAgriContainer",
             "name"          :"Stylesheet",
             "description"   :"Add changes to the CSS file"
+        },
+		 {
+            "key"           :"CeresAgri\\Containers\\CeresAgriJsContainer",
+            "name"          :"Js files",
+            "description"   :"Add changes to the js file"
         },
         {
             "key"           :"CeresAgri\\Containers\\CeresAgriItemListContainer1",
