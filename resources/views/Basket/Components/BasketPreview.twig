@@ -7,8 +7,8 @@
 	<button v-toggle-basket-preview type="button" class="btn btn-primary" aria-label="Close">
                 {{ trans("CeresAgri::Template.basketPreviewGoShopping") }}
             </button>
-        <header class="basket-header p-a-1">
-            <div class="d-inline-block m-a-0 basket-header-caption">{{ trans("CeresAgri::Template.basketPreview") }}</div>
+        <header class="basket-header pa-1">
+            <div class="d-inline-block ma-0 basket-header-caption">{{ trans("CeresAgri::Template.basketPreview") }}</div>
             
         </header>
 
@@ -18,9 +18,9 @@
             </div>
         </div>
 
-        <div class="basket-preview-content row p-l-1 p-r-1">
+        <div class="basket-preview-content row pl-1 pr-1">
             <!-- BASKET LIST -->
-            <div class="list col-sm-7 col-md-12 p-t-1">
+            <div class="list col-sm-7 col-md-12 pt-1">
                 <div class="cmp cmp-basket-preview-list">
                     <basket-list template="#vue-basket-list" size="small"></basket-list>
                 </div>
@@ -28,12 +28,12 @@
             <!-- ./BASKET LIST -->
 
             <!-- BASKET PREVIEW BOTTOM -->
-            <div class="bg-faded totals col-sm-5 col-md-12 p-t-1">
+            <div class="bg-light totals col-sm-5 col-md-12 pt-1">
 
                 <basket-totals template="#vue-basket-totals"></basket-totals>
 
                 <div class="basket-preview-footer row">
-                    <div class="col-xs-6 col-sm-6 m-b-1">
+                    <div class="col-xs-6 col-sm-6 mb-1">
                         <a v-waiting-animation-infinite
                         href="{{ urls.basket }}"
                         rel="nofollow"

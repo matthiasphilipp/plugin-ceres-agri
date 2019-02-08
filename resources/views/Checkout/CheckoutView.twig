@@ -23,7 +23,7 @@
     <div class="page-content checkout container-max">
         {% set overrideCheckout = LayoutContainer.show("CeresAgri::Checkout") %}
         {% if overrideCheckout|trim is empty %}
-            <div class="row m-t-1">
+            <div class="row mt-1">
                 <div class="col-xs-12">
                     <h1 class="h2">{{ trans("CeresAgri::Template.checkout") }}</h1>
                     <hr>
@@ -34,13 +34,13 @@
                 <div class="row" slot-scope="checkoutComp">
                     <!-- ADDRESS SELECT -->
                     <div class="col-md-7">
-                        <div class="col-xs-12 p-t-2 bg-white">
+                        <div class="col-xs-12 pt-2 bg-white">
                             <div id="registry-form-container" class="registry-form-container main-col" data-id="0" data-status="2">
                                 {% set overrideAddressLists = LayoutContainer.show("CeresAgri::Checkout.AddressLists") %}
                                 {% if overrideAddressLists|trim is empty %}
                                     {% set overrideBillingAddress = LayoutContainer.show("CeresAgri::Checkout.BillingAddress") %}
                                     {% if overrideBillingAddress|trim is empty %}
-                                        <header class="m-b-1">
+                                        <header class="mb-1">
                                             <h3>{{ trans("CeresAgri::Template.checkoutInvoiceAddress") }}</h3>
                                         </header>
 
@@ -59,7 +59,7 @@
 
                                     {% set overrideShippingAddress = LayoutContainer.show("CeresAgri::Checkout.ShippingAddress") %}
                                     {% if overrideShippingAddress|trim is empty %}
-                                        <header class="m-b-1">
+                                        <header class="mb-1">
                                             <h3>{{ trans("CeresAgri::Template.checkoutShippingAddress") }}</h3>
                                         </header>
 
@@ -78,7 +78,7 @@
                                     {{ overrideAddressLists }}
                                 {% endif %}
                                 {% set overrideShippingProfiles = LayoutContainer.show("CeresAgri::Checkout.ShippingProfileList") %}
-                                <header class="m-b-1">
+                                <header class="mb-1">
                                     <h3>{{ trans("CeresAgri::Template.checkoutShippingProfile") }}</h3>
                                 </header>
 
@@ -93,7 +93,7 @@
                                 {{ LayoutContainer.show("CeresAgri::Checkout.AfterShippingProfileList") }}
 
                                 {% set overridePaymentList = LayoutContainer.show("CeresAgri::Checkout.PaymentList") %}
-                                <header class="m-b-1">
+                                <header class="mb-1">
                                     <h3>{{ trans("CeresAgri::Template.checkoutPaymentMethod") }}</h3>
                                 </header>
 
@@ -111,7 +111,7 @@
                                     <h3>{{ trans("CeresAgri::Template.checkoutContactWish") }}</h3>
                                 </header>
 
-                                <contact-wish-input class="p-b-1" template="#vue-contact-wish-input"></contact-wish-input>
+                                <contact-wish-input class="pb-1" template="#vue-contact-wish-input"></contact-wish-input>
 
                                 <shipping-privacy-hint-check></shipping-privacy-hint-check>
 
@@ -125,11 +125,11 @@
                     <!-- ./ADDRESS SELECT -->
 
                     <div class="col-md-5 checkout-rightside">
-                        <div class="col-xs-12 bg-white p-t-2">
+                        <div class="col-xs-12 bg-white pt-2">
                             <h3>{{ trans("CeresAgri::Template.checkoutBasket") }}</h3>
-                            <hr class="m-b-0">
+                            <hr class="mb-0">
                         </div>
-                        <div class="col-xs-12 p-t-2 bg-white">
+                        <div class="col-xs-12 pt-2 bg-white">
                             <aside class="sidebar">
                                 <div class="cmp cmp-checkout-sidebar">
                                     <div class="cmp cmp-basket-preview-list">
@@ -144,7 +144,7 @@
                     </div>
 
                     <div class="col-md-5 checkout-rightside float-right" v-stick-in-parent>
-                        <div class="col-xs-12 p-t-1 bg-white">
+                        <div class="col-xs-12 pt-1 bg-white">
                             <aside class="sidebar">
                                 <div class="cmp cmp-checkout-sidebar">
                                     {{ LayoutContainer.show("CeresAgri::Checkout.BeforeBasketTotals") }}
@@ -154,7 +154,7 @@
                             </aside>
                         </div>
 
-                        <div class="col-xs-12 p-b-1 bg-white">
+                        <div class="col-xs-12 pb-1 bg-white">
                             {{ LayoutContainer.show("CeresAgri::Checkout.BeforePlaceOrder") }}
                             <place-order template="#vue-place-order" target-continue="{{ homepageURL }}{% if homepageURL | last != '/'%}/{% endif %}place-order{% if urls.appendTrailingSlash %}/{% endif %}" @payment-response="checkoutComp.showModal($event)"></place-order>
                             {{ LayoutContainer.show("CeresAgri::Checkout.AfterPlaceOrder") }}

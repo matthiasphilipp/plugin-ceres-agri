@@ -7,14 +7,14 @@
 {% set basketTotalsCurrency = totals.currency %}
 
 <div class="row">
-    <div class="col-md-6 m-b-2">
+    <div class="col-md-6 mb-2">
         <div class="card small">
             <!-- ORDER -->
             <div class="card-header">
                 <h5>{{ trans("CeresAgri::Template.orderConfirmationOrderId") }} {{ orderData.order.id }}</h5>
             </div>
 
-            <div class="card-block">
+            <div class="card-body">
                 <div class="details">
                     <div class="row">
                         <strong class="col-xs-6 col-sm-5">{{ trans("CeresAgri::Template.orderConfirmationDate") }}</strong>
@@ -42,7 +42,7 @@
                         </span>
                     </div>
 
-                    <div class="row m-t-1">
+                    <div class="row mt-1">
                         <strong class="col-xs-6 col-sm-5">{{ trans("CeresAgri::Template.orderConfirmationShippingAddress") }}</strong>
                         <span class="col-xs-6 col-sm-7">
                             {% if orderData.order.billingAddress.id == orderData.order.deliveryAddress.id %}
@@ -153,7 +153,7 @@
                             </a>
 
                             {% if splitItemBundle != "1" and item.bundleType == "bundle" %}
-                                <div class="m-b-1 item-bundle">
+                                <div class="mb-1 item-bundle">
                                     {% for bundleComponent in item.bundleComponents %}
                                         <div>
                                             <span class="text-muted">{{ bundleComponent.quantity }} x</span>
